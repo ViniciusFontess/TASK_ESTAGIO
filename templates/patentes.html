@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <style>
+        table {
+            width: 82%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Resultado</h1>
+    <form action = "/patentes" id= "patentes" method = "post">
+
+    <table>
+        <thead>
+            <tr>
+                <th>Arquivo</th>
+                <th>CNPJ</th>
+                <th>RESULTADO</th>
+                <th>NÚMERO DO PEDIDO</th>
+                <th>Data do Depósito</th>
+                <th>Título</th>
+                <th>IPC</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for patente in patentes %}
+            <tr>
+                <td>{{ patente.name }}</td>
+                <td>{{ patente.cnpj }}</td>
+                <td>{{ patente.resultado }}</td>
+                <td>{{ patente.number }}</td>
+                <td>{{ patente.deposit_date }}</td>
+                <td>{{ patente.title }}</td>
+                <td>{{ patente.alert }}</td>
+            </tr>
+            {% endfor %}
+            <style>
+                td {
+                    text-align: center;
+                }
+            </style>
+        </tbody>
+    </table>
+</body>
+</html>
